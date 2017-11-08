@@ -10,6 +10,9 @@ Build the following methods on the Recipe class
 
 - `Recipe.all`
 should return all of the recipe instances
+- `Recipe.most_popular`
+should return the recipe instance with the highest number of users (the recipe that has the most recipe cards)
+should return all of the recipe instances
 - `Recipe#users`
 should return the user instances who have recipe cards with this recipe
 - `Recipe#ingredients`
