@@ -72,6 +72,13 @@ should return the recipe instance
 ### `Allergen`
 An Allergen is a join between a user and an ingredient.  This is a has-many-through relationship.  What methods should an instance of this model respond to?
 
+- `Allergen.all`
+should return all of the Allergen instances
+- `Allergen.most_common`
+should return Allergen instances that belong to the greatest number of Users
+
+
+
 ### `**Bonus**`
 - `User#safe_recipes`
 should return all recipes that do not contain ingredients the user is allergic to
