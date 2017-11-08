@@ -22,6 +22,7 @@ should accept a recipe instance as an argument, and create a new cookbook entry 
 
 
 ### `CookbookEntry`
+A CookbookEntry is the join between a user instance and a recipe instance.  This is a has-many-through relationship.
 Build the following methods on the CookbookEntry class:  
 
 - `CookbookEntry.all`
@@ -30,3 +31,15 @@ should return all of the CookbookEntry instances
 should return the date of the entry
 - `CookbookEntry#rating`
 should return the rating (an integer) a user has given their entry
+- `CookbookEntry#user`
+should return the user to which the entry belongs
+- `CookbookEntry#recipe`
+should return the recipe to which the entry belongs
+
+### `Ingredient`
+
+### `IngredientRecipes`
+
+### `Allergen`
+
+### `UserAllergens`
