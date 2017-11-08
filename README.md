@@ -63,6 +63,8 @@ Build the following methods on the Ingredient class
 
 - `Ingredient.all`
 should return all of the ingredient instances
+- `Ingredient.most_common_allergen`
+should return the ingredient instance that the highest number of users are allergic to
 
 
 ### `RecipeIngredient`
@@ -81,8 +83,6 @@ An Allergen is a join between a user and an ingredient.  This is a has-many-thro
 
 - `Allergen.all`
 should return all of the Allergen instances
-- `Allergen.most_common`
-should return Allergen instances that belong to the greatest number of Users
 
 
 
