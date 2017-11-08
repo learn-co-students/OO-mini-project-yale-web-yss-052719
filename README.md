@@ -74,4 +74,4 @@ An Allergen is a join between a user and an ingredient.  This is a has-many-thro
 
 ### `**Bonus**`
 - `User#safe_recipes`
-should return all recipes that do not contain items the user is allergic to
+should return all recipes that do not contain ingredients the user is allergic to
