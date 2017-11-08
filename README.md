@@ -22,7 +22,11 @@ should accept a recipe instance as an argument, and create a new cookbook entry 
 
 
 ### `CookbookEntry`
-Build the following methods on the CookbookEntry class.  
+Build the following methods on the CookbookEntry class:  
 
 - `CookbookEntry.all`
 should return all of the CookbookEntry instances
+- `CookbookEntry#date`
+should return the date of the entry
+- `CookbookEntry#rating`
+should return the rating (an integer) a user has given their entry
