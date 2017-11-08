@@ -22,6 +22,10 @@ should return all of the recipes this user has cookbook entries for
 should accept a recipe instance as an argument, and create a new cookbook entry for this user and the given recipe
 - `User#allergens`
 should return all of the things this user is allergic to
+- `User#top_three_recipes`
+should return the top three highest rated recipes for this user.
+- `User#most_recent_recipe`
+should return the recipe most recently added to the user's cookbook.
 
 
 
