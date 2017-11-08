@@ -7,6 +7,8 @@ Build the following methods on the Recipe class
 should return all of the recipe instances
 - `Recipe#users`
 should return the user instances who have cookbook entries with this recipe
+- `Recipe#ingredients`
+should return all of the ingredients in this recipe
 
 
 ### `User`
@@ -18,6 +20,9 @@ should return all of the user instances
 should return all of the recipes this user has cookbook entries for
 - `User#add_cookbook_entry`
 should accept a recipe instance as an argument, and create a new cookbook entry for this user and the given recipe
+- `User#allergens`
+should return all of the things this user is allergic to
+
 
 
 ### `CookbookEntry`
@@ -40,6 +45,7 @@ Build the following methods on the Ingredient class
 
 - `Ingredient.all`
 should return all of the ingredient instances
+
 
 ### `IngredientRecipes`
 IngredientRecipes is the join between an ingredient and a recipe.  This is a has-many-through relationship
