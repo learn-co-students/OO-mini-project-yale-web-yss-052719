@@ -70,3 +70,8 @@ Build the following methods on the Allergen class
 
 - `Allergen.all`
 should return all of the allergen instances
+
+### `**Bonus**`
+
+- `User#safe_recipes`
+should return all recipes that do not contain ingredients a user is allergic to.
