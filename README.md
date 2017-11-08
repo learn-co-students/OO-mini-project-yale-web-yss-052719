@@ -9,7 +9,6 @@ should return all of the recipe instances
 should return the user instances who have cookbook entries with this recipe
 
 
-
 ### `User`
 Build the following methods on the User class
 
@@ -39,10 +38,15 @@ should return the recipe to which the entry belongs
 ### `Ingredient`
 Build the following methods on the Ingredient class
 
+- `Ingredient.all`
+should return all of the ingredient instances
+
 ### `IngredientRecipes`
 IngredientRecipes is the join between an ingredient and a recipe.  This is a has-many-through relationship
 Build the following methods on the IngredientRecipes class
 
+- `IngredientRecipes.all`
+should return all of the IngredientRecipes instances
 - `IngredientRecipes#ingredient`
 should return the ingredient instance
 - `IngredientRecipes#recipe`
@@ -53,3 +57,6 @@ UserAllergens is the join between a user and an allergen.  This is a has-many-th
 
 ### `Allergen`
 Build the following methods on the Allergen class
+
+- `Allergen.all`
+should return all of the allergen instances
