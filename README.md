@@ -9,6 +9,8 @@ should return all of the recipe instances
 should return the user instances who have recipe cards with this recipe
 - `Recipe#ingredients`
 should return all of the ingredients in this recipe
+- `Recipe#allergens`
+should return all of the ingredients in this recipe that are allergens
 
 
 ### `User`
