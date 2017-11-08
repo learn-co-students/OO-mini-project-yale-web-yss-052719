@@ -62,15 +62,15 @@ Build the following methods on the Ingredient class
 should return all of the ingredient instances
 
 
-### `IngredientRecipe`
-IngredientRecipe is the join between an ingredient and a recipe.  This is a has-many-through relationship
-Build the following methods on the IngredientRecipe class
+### `RecipeIngredient`
+RecipeIngredient is the join between an ingredient and a recipe.  This is a has-many-through relationship
+Build the following methods on the RecipeIngredient class
 
-- `IngredientRecipe.all`
-should return all of the IngredientRecipe instances
-- `IngredientRecipe#ingredient`
+- `RecipeIngredient.all`
+should return all of the RecipeIngredient instances
+- `RecipeIngredient#ingredient`
 should return the ingredient instance
-- `IngredientRecipe#recipe`
+- `RecipeIngredient#recipe`
 should return the recipe instance
 
 ### `Allergen`
