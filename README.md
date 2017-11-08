@@ -37,9 +37,19 @@ should return the user to which the entry belongs
 should return the recipe to which the entry belongs
 
 ### `Ingredient`
+Build the following methods on the Ingredient class
 
 ### `IngredientRecipes`
+IngredientRecipes is the join between an ingredient and a recipe.  This is a has-many-through relationship
+Build the following methods on the IngredientRecipes class
+
+- `IngredientRecipes#ingredient`
+should return the ingredient instance
+- `IngredientRecipes#recipe`
+should return the recipe instance
 
 ### `Allergen`
+Build the following methods on the Allergen class
 
 ### `UserAllergens`
+UserAllergens is the join between an ingredient and a recipe.  This is a has-many-through relationship.  What methods should an instance of this model respond to?
