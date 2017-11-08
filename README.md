@@ -71,3 +71,7 @@ should return the recipe instance
 
 ### `Allergen`
 An Allergen is a join between a user and an ingredient.  This is a has-many-through relationship.  What methods should an instance of this model respond to?
+
+### `**Bonus**`
+- `User#safe_recipes`
+should return all recipes that do not contain items the user is allergic to
