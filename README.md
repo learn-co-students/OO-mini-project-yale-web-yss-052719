@@ -48,8 +48,8 @@ should return the ingredient instance
 - `IngredientRecipes#recipe`
 should return the recipe instance
 
+### `UserAllergens`
+UserAllergens is the join between a user and an allergen.  This is a has-many-through relationship.  What methods should an instance of this model respond to?
+
 ### `Allergen`
 Build the following methods on the Allergen class
-
-### `UserAllergens`
-UserAllergens is the join between an ingredient and a recipe.  This is a has-many-through relationship.  What methods should an instance of this model respond to?
