@@ -1,6 +1,6 @@
 ## OO Recipes Mini Project
 
-In this project, we will be practicing object relationships in Ruby, with a particular emphasis on the has-many-through relationship.  We will be building out a schema in which a User has a collection of RecipeCards. Each RecipeCard will store information about a Recipe a User would like to save, creating the relationship of a User having many Recipes through RecipeCards. A single recipe can also belong to many Users.  A Recipe also has many Ingredients, while a single Ingredient can be found in many Recipes.  Read through the deliverables below and begin building out the following six classes.  You may not be able to build out all methods until you have set up relationships between the classes, so it is normal to jump around a bit in the building process.  
+In this project, we will be practicing object relationships in Ruby, with a particular emphasis on the has-many-through relationship.  We will be building out a schema in which a User has a collection of RecipeCards. Each RecipeCard will store information about a Recipe a User would like to save, creating the relationship of a User having many Recipes through RecipeCards. A single recipe can also belong to many Users.  A Recipe also has many Ingredients, while a single Ingredient can be found in many Recipes.  Read through the deliverables below and begin building out the following six classes.  You may not be able to build out all methods until you have set up relationships between the classes, so it is normal to jump around a bit in the building process.  If you are confused about how the below models relate to each other, it may help to draw this out on a whiteboard before beginning to code.  
 
 
 ## Deliverables
@@ -27,6 +27,8 @@ should return all of the user instances
 should return all of the recipes this user has recipe cards for
 - `User#add_recipe_card`
 should accept a recipe instance as an argument, and create a new recipe card for this user and the given recipe
+- `User#declare_allergen`
+should accept an ingredient instance as an argument, and create a new allergen instance for this user and the given ingredient
 - `User#allergens`
 should return all of the ingredients this user is allergic to
 - `User#top_three_recipes`
