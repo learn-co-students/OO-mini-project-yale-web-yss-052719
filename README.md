@@ -2,6 +2,9 @@
 
 In this project, we will be practicing object relationships in Ruby, with a particular emphasis on the has-many-through relationship.  We will be building out a schema in which a User has a collection of RecipeCards. Each RecipeCard will store information about a Recipe a User would like to save, creating the relationship of a User having many Recipes through RecipeCards. A single recipe can also belong to many Users.  A Recipe also has many Ingredients, while a single Ingredient can be found in many Recipes.  Read through the deliverables below and begin building out the following six classes.  You may not be able to build out all methods until you have set up relationships between the classes, so it is normal to jump around a bit in the building process.  If you are confused about how the below models relate to each other, it may help to draw this out on a whiteboard before beginning to code.  
 
+## Testing
+
+We've provided you with a console that you can use to test your code. To enter a console session, run ruby tools/console.rb. You'll be able to test out the methods that you write here.
 
 ## Deliverables
 
