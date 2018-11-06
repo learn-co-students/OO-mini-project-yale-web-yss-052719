@@ -1,4 +1,15 @@
-# An Allergen is a join between a user and an ingredient. This is a has-many-through relationship. What methods should
-# an instance of this model respond to?
+# An Allergen is a join between a user and an ingredient.
+# This is a has-many-through relationship.
+class Allergen
 
-# Allergen.all should return all of the Allergen instances
+  @@allergens = []
+
+  def initialize
+    @@allergens << self
+  end
+
+  # return all of the Allergen instances
+  def self.all
+    return @@allergens
+  end
+end
