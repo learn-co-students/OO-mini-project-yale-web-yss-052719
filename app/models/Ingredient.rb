@@ -2,13 +2,17 @@
 class Ingredient
   @@ingredients = []
 
-  def initialize
-    @@ingredients << self
+  attr_reader :name
+
+  def initialize(name)
+    @@ingredients.append(self)
+
+    @name = name
   end
 
   # return all of the ingredient instances
   def self.all
-    return @@ingredients
+    @@ingredients
   end
 
   # return the ingredient instance that the highest number of users are allergic to

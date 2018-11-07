@@ -3,22 +3,17 @@
 class RecipeIngredient
   @@recipe_ingredients = []
 
-  def initialize
-    @@recipe_ingredients << self
+  attr_reader :ingredient, :recipe
+
+  def initialize(recipe, ingredient)
+    @@recipe_ingredients.append(self)
+
+    @recipe = recipe
+    @ingredient = ingredient
   end
 
   # return all of the RecipeIngredient instances
   def self.all
     return @@recipe_ingredients
-  end
-
-  # return the ingredient instance
-  def ingredient
-
-  end
-
-  # return the recipe instance
-  def recipe
-
   end
 end
