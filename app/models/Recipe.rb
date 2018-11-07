@@ -1,28 +1,30 @@
 class Recipe
   @@recipes = []
 
-  def initialize
-    @@recipes << self
+  attr_reader :name, :ingredients
+
+  def initialize(name)
+    @@recipes.append(self)
+
+    @name = name
+    @ingredients = []
   end
 
   # return all of the recipe instances
   def self.all
-    return @@recipes
+    @@recipes
   end
 
-  # return the recipe instance with the highest number of users (the recipe that has the most recipe cards)
+  # return the recipe instance with the highest number of users
+  # (the recipe that has the most recipe cards)
   def self.most_popular
+    # @@recipes.sort_by { |recipe| recipe.user}
 
   end
 
   # return the user instances who have recipe cards with this recipe
   def users
-
-  end
-
-  # return all of the ingredients in this recipe
-  def ingrediants
-
+    User.all.select { |user| user.recipes.include?(self) }
   end
 
   # return all of the ingredients in this recipe that are allergens
@@ -33,6 +35,8 @@ class Recipe
   # take an array of ingredient instances as an argument,
   # and associate each of those ingredients with this recipe
   def add_ingredients(ingredients)
-
+    ingredients.each do |ingredient|
+      @ingredients.append(RecipeIngredient.new(self, ingredient))
+    end
   end
 end
