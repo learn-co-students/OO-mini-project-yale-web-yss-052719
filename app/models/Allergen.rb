@@ -4,12 +4,15 @@ class Allergen
 
   @@allergens = []
 
-  def initialize
-    @@allergens << self
+  def initialize(user, ingredient)
+    @@allergens.append(self)
+
+    @user = user
+    @ingredient = ingredient
   end
 
   # return all of the Allergen instances
   def self.all
-    return @@allergens
+    @@allergens
   end
 end
