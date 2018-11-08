@@ -31,4 +31,9 @@ emily.add_recipe_card(omelette, "2018-11-30", 99)
 emily.add_recipe_card(salad, "2018-11-29", 97)
 norma.add_recipe_card(salad, "2018-11-29", 100)
 
+brit.declare_allergen(carrot)
+brit.declare_allergen(dressing)
+emily.declare_allergen(carrot)
+emily.declare_allergen(pepper)
+
 binding.pry
