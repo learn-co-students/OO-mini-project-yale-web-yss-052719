@@ -17,6 +17,6 @@ class RecipeCard
 
   # return all of the RecipeCard instances
   def self.all
-    return @@recipe_cards
+    @@recipe_cards
   end
 end
