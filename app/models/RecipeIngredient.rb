@@ -14,6 +14,6 @@ class RecipeIngredient
 
   # return all of the RecipeIngredient instances
   def self.all
-    return @@recipe_ingredients
+    @@recipe_ingredients
   end
 end
