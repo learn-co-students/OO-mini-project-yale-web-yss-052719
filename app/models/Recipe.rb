@@ -18,8 +18,14 @@ class Recipe
   # return the recipe instance with the highest number of users
   # (the recipe that has the most recipe cards)
   def self.most_popular
-    # @@recipes.sort_by { |recipe| recipe.user}
-
+    # grab all the recipes
+    Recipe.all.max_by do |recipe|
+      # compare each recipe by the number of recipe cards which
+      # include this particular recipe
+      RecipeCard.all.select do |card|
+        card.recipe == recipe
+      end.count
+    end
   end
 
   # return the user instances who have recipe cards with this recipe

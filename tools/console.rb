@@ -12,6 +12,7 @@ blueberry = Ingredient.new("Blueberry")
 
 brit = User.new("Brit")
 emily = User.new("Emily")
+norma = User.new("Norma")
 
 pancake = Recipe.new("Pancake")
 pancake.add_ingredients([flour, egg, milk])
@@ -27,5 +28,7 @@ brit.add_recipe_card(omelette, "2018-11-29", 90)
 brit.add_recipe_card(salad, "2018-11-29", 95)
 brit.add_recipe_card(carrot_with_dressing, "2018-11-30", 80)
 emily.add_recipe_card(omelette, "2018-11-30", 99)
+emily.add_recipe_card(salad, "2018-11-29", 97)
+norma.add_recipe_card(salad, "2018-11-29", 100)
 
 binding.pry
