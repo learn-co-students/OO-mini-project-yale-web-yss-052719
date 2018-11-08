@@ -17,6 +17,11 @@ class User
     @@users
   end
 
+  ## TODO:
+  # Get rid of the @recipe_cards and @allergens variables as they violate
+  # "single source of truth". Instead use Allergen.all and RecipeCard to
+  # dynamically build the result on each method call. No caching!
+
   # return all of the recipes this user has recipe cards for
   def recipes
     @recipe_cards.map { |card| card.recipe }
@@ -40,6 +45,8 @@ class User
 
   # return the top three highest rated recipes for this user
   def top_three_recipes
+    # RecipeCard.all.sort_by {|x| -x.rating }.first(3).map {|card| card.recipe}
+    # RecipeCard.all.sort_by {|x| -x.rating }.first(3).map(&:recipe)
     @recipe_cards.sort { |a, b| b.rating <=> a.rating }.first(3).map { |card| card.recipe }
   end
 
