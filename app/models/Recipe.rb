@@ -7,7 +7,6 @@ class Recipe
     @@recipes.append(self)
 
     @name = name
-    @recipe_ingredients = []
   end
 
   # return all of the recipe instances
@@ -34,7 +33,7 @@ class Recipe
   end
 
   def ingredients
-    @recipe_ingredients.map { |rec_ing| rec_ing.ingredient}
+    RecipeIngredient.all.select { |rec_ing| rec_ing.recipe == self }.map(&:ingredient)
   end
 
   # return all of the ingredients in this recipe that are allergens
@@ -44,8 +43,6 @@ class Recipe
   # take an array of ingredient instances as an argument,
   # and associate each of those ingredients with this recipe
   def add_ingredients(ingredients)
-    ingredients.each do |ingredient|
-      @recipe_ingredients.append(RecipeIngredient.new(self, ingredient))
-    end
+    ingredients.each { |ingredient| RecipeIngredient.new(self, ingredient) }
   end
 end
