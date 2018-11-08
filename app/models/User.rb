@@ -34,7 +34,7 @@ class User
   # instance for this user and the given ingredient
   def declare_allergen(ingredient)
     @allergens.append(
-      Allergen.new(user, ingredient)
+      Allergen.new(self, ingredient)
     )
   end
 
