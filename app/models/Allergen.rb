@@ -2,6 +2,8 @@
 # This is a has-many-through relationship.
 class Allergen
 
+  attr_reader :user, :ingredient
+
   @@allergens = []
 
   def initialize(user, ingredient)
