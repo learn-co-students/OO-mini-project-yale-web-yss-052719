@@ -2,24 +2,18 @@ class User
 
   @@users = []
 
-  attr_reader :name, :allergens
+  attr_reader :name
 
   def initialize(name)
     @@users.append(self)
 
     @name = name
-    @allergens = []
   end
 
   # return all of the user instances
   def self.all
     @@users
   end
-
-  ## TODO:
-  # Get rid of the @recipe_cards and @allergens variables as they violate
-  # "single source of truth". Instead use Allergen.all and RecipeCard to
-  # dynamically build the result on each method call. No caching!
 
   # return all of the recipes this user has recipe cards for
   def recipes
@@ -35,9 +29,7 @@ class User
   # accept an ingredient instance as an argument, and create a new allergen
   # instance for this user and the given ingredient
   def declare_allergen(ingredient)
-    @allergens.append(
-      Allergen.new(self, ingredient)
-    )
+    Allergen.new(self, ingredient)
   end
 
   # return the top three highest rated recipes for this user
