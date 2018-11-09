@@ -1,8 +1,9 @@
 
 class Ingredient
-  @@ingredients = []
 
   attr_reader :name
+
+  @@ingredients = []
 
   def initialize(name)
     @@ingredients.append(self)

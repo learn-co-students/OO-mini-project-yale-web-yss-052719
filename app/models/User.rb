@@ -1,8 +1,8 @@
 class User
 
-  @@users = []
-
   attr_reader :name
+
+  @@users = []
 
   def initialize(name)
     @@users.append(self)

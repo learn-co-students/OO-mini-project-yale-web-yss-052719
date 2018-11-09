@@ -2,9 +2,10 @@
 # This is a has-many-through relationship.
 
 class RecipeCard
-  @@recipe_cards = []
 
   attr_reader :date, :rating, :user, :recipe
+
+  @@recipe_cards = []
 
   def initialize(recipe, user, date, rating)
     @@recipe_cards.append(self)

@@ -1,7 +1,8 @@
 class Recipe
-  @@recipes = []
 
   attr_reader :name
+
+  @@recipes = []
 
   def initialize(name)
     @@recipes.append(self)
@@ -33,12 +34,14 @@ class Recipe
   end
 
   def ingredients
-    RecipeIngredient.all.select { |rec_ing| rec_ing.recipe == self }.map(&:ingredient)
+    RecipeIngredient.all.select { |rec_ing| rec_ing.recipe == self }.map { |recipe| recipe.ingredient }
   end
 
   # return all of the ingredients in this recipe that are allergens
   def allergens
-    ingredients.select { |ingredient| Allergen.all.map(&:ingredient).uniq.include?(ingredient)}
+    ingredients.select do |ingredient|
+      Allergen.all.map { |allergen| allergen.ingredient }.uniq.include?(ingredient)
+    end
   end
 
   # take an array of ingredient instances as an argument,
