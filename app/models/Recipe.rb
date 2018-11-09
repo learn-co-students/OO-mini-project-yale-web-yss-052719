@@ -1,7 +1,7 @@
 class Recipe
   @@recipes = []
 
-  attr_reader :name, :ingredients
+  attr_reader :name
 
   def initialize(name)
     @@recipes.append(self)
@@ -38,6 +38,7 @@ class Recipe
 
   # return all of the ingredients in this recipe that are allergens
   def allergens
+    ingredients.select { |ingredient| Allergen.all.map(&:ingredient).uniq.include?(ingredient)}
   end
 
   # take an array of ingredient instances as an argument,
