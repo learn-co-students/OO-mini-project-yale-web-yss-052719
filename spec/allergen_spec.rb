@@ -10,9 +10,9 @@ describe Allergen do
     @pepper = Ingredient.new('Pepper')
     @carrot = Ingredient.new('Carrot')
 
-    @shinji = Recipe.new('Shinji')
-    @asuka = Recipe.new('Asuka')
-    @rei = Recipe.new('Rei')
+    @shinji = User.new('Shinji')
+    @asuka = User.new('Asuka')
+    @rei = User.new('Rei')
 
     @a_sf = Allergen.new(@shinji, @flour)
     @a_ap = Allergen.new(@asuka, @pepper)
