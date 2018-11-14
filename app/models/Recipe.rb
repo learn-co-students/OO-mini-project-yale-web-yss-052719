@@ -30,7 +30,7 @@ class Recipe
 
   # return the user instances who have recipe cards with this recipe
   def users
-    User.all.select { |user| user.recipes.include?(self) }
+    RecipeCard.all.select { |rc| rc.recipe == self }.map { |rc| rc.user }
   end
 
   def ingredients
