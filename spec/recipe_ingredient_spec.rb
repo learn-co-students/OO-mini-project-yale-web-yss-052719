@@ -1,50 +1,44 @@
 require 'rspec'
 require 'spec_helper'
-require 'RecipeIngredient.rb'
-require 'Ingredient.rb'
-require 'Recipe.rb'
 
-describe RecipeIngredient do
-  before do
-    @flour = Ingredient.new('Flour')
-    @pepper = Ingredient.new('Pepper')
-    @carrot = Ingredient.new('Carrot')
+RSpec.describe RecipeIngredient do
+  let(:flour) { Ingredient.new('Flour') }
+  let(:pepper) { Ingredient.new('Pepper') }
+  let(:carrot) { Ingredient.new('Carrot') }
 
-    @pancake = Recipe.new('Pancake')
-    @omelette = Recipe.new('Omelette')
-    @salad = Recipe.new('Salad')
+  let(:pancake) { Recipe.new('Pancake') }
+  let(:omelette) { Recipe.new('Omelette') }
+  let(:salad) { Recipe.new('Salad') }
 
-    @ri_pf = RecipeIngredient.new(@pancake, @flour)
-    @ri_op = RecipeIngredient.new(@omelette, @pepper)
-    @ri_sc = RecipeIngredient.new(@salad, @carrot)
+  let(:ri_pf) { RecipeIngredient.new(pancake, flour) }
+  let(:ri_op) { RecipeIngredient.new(omelette, pepper) }
+  let(:ri_sc) { RecipeIngredient.new(salad, carrot) }
+ 
+  let(:recipe_ingredients) { [ri_pf, ri_op, ri_sc] }
 
-    @recipe_ingredients = [@ri_pf, @ri_op, @ri_sc]
-  end
-
-  describe '.all' do
-
+  context '.all' do
     it 'should have all instances' do
-      expect(RecipeIngredient.all).to eql(@recipe_ingredients)
+      expect(RecipeIngredient.all).to eql(recipe_ingredients)
     end
   end
 
-  describe 'ingredient' do
+  context 'ingredient' do
     it 'should have ingredient gettr' do
-      expect(@ri_pf.ingredient).to eql(@flour)
+      expect(ri_pf.ingredient).to eql(flour)
     end
 
     it 'should not have ingredient setter' do
-      expect{@ri_pf.ingredient=double}.to raise_error(NoMethodError)
+      expect { ri_pf.ingredient = double }.to raise_error(NoMethodError)
     end
   end
 
-  describe 'recipe' do
+  context 'recipe' do
     it 'should have recipe gettr' do
-      expect(@ri_pf.recipe).to eql(@pancake)
+      expect(ri_pf.recipe).to eql(pancake)
     end
 
     it 'should not have recipe setter' do
-      expect{@ri_pf.recipe=double}.to raise_error(NoMethodError)
+      expect { ri_pf.recipe = double }.to raise_error(NoMethodError)
     end
 
   end
