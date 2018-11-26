@@ -92,7 +92,8 @@ RSpec.describe User do
     end
 
     it 'should be ' do
-      expected = [shinji_pancake, shinji_omelette, shinji_salad, shinji_fried_potatoes].sort_by(&:rating).last(3).map(&:recipe)
+      recipes = [shinji_pancake, shinji_omelette, shinji_salad, shinji_fried_potatoes]
+      expected = recipes.sort_by(&:rating).last(3).map(&:recipe)
       expect(shinji.top_three_recipes).to match_array(expected)
     end
   end
