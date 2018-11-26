@@ -55,7 +55,7 @@ RSpec.describe User do
     end
 
     it 'should just be shinjis recipes' do
-      expect(shinji.recipes).to eql( [pancake, omelette, salad] )
+      expect(shinji.recipes).to eql([pancake, omelette, salad])
     end
   end
 
