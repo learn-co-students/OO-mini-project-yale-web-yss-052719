@@ -1,7 +1,4 @@
-require 'rspec'
-require 'spec_helper'
 require 'date'
-# require 'random'
 
 RSpec.describe User do
   # Users

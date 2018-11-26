@@ -1,6 +1,3 @@
-require 'rspec'
-require 'spec_helper'
-
 RSpec.describe Ingredient do
   let(:flour) { Ingredient.new('Flour') }
   let(:pepper) { Ingredient.new('Pepper') }

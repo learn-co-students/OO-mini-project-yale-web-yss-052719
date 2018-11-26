@@ -1,5 +1,3 @@
-require 'rspec'
-require 'spec_helper'
 require 'date'
 
 RSpec.describe RecipeCard do
