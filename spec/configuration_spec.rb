@@ -1,12 +1,14 @@
 Dir["./app/models/*.rb"].each { |file| require file }
+require 'pry'
+
+CLASS_LIST = [Allergen, Ingredient, Recipe, RecipeCard, RecipeIngredient, User].freeze
+
+def reset_class_vars(_class)
+  _class.all.clear
+end
 
 RSpec.configure do |config|
-  config.after(:all) do
-    Allergen.class_eval { @@allergens = [] }
-    Ingredient.class_eval { @@ingredients = [] }
-    Recipe.class_eval { @@recipes = [] }
-    RecipeCard.class_eval { @@recipe_cards = [] }
-    RecipeIngredient.class_eval { @@recipe_ingredients = [] }
-    User.class_eval { @@users = [] }
+  config.after(:each) do
+    CLASS_LIST.each { |c| reset_class_vars(c) }
   end
 end

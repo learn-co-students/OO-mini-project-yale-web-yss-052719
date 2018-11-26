@@ -3,17 +3,17 @@ class Ingredient
 
   attr_reader :name
 
-  @@ingredients = []
+  @@all = []
 
   def initialize(name)
-    @@ingredients.append(self)
+    @@all.append(self)
 
     @name = name
   end
 
   # return all of the ingredient instances
   def self.all
-    @@ingredients
+    @@all
   end
 
   # -- Brit solution --
@@ -25,7 +25,7 @@ class Ingredient
 
   # return the ingredient instance that the highest number of users are allergic to
   def self.most_common_allergen
-    @@ingredients.max_by do |ingredient|
+    @@all.max_by do |ingredient|
       Allergen.all.select { |allergen| allergen.ingredient == ingredient }.count
     end
   end

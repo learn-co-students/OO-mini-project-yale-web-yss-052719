@@ -4,10 +4,10 @@ class Allergen
 
   attr_reader :user, :ingredient
 
-  @@allergens = []
+  @@all = []
 
   def initialize(user, ingredient)
-    @@allergens.append(self)
+    @@all.append(self)
 
     @user = user
     @ingredient = ingredient
@@ -15,6 +15,6 @@ class Allergen
 
   # return all of the Allergen instances
   def self.all
-    @@allergens
+    @@all
   end
 end

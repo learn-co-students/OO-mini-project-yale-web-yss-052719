@@ -4,10 +4,10 @@ class RecipeIngredient
 
   attr_reader :ingredient, :recipe
 
-  @@recipe_ingredients = []
+  @@all = []
 
   def initialize(recipe, ingredient)
-    @@recipe_ingredients.append(self)
+    @@all.append(self)
 
     @recipe = recipe
     @ingredient = ingredient
@@ -15,6 +15,6 @@ class RecipeIngredient
 
   # return all of the RecipeIngredient instances
   def self.all
-    @@recipe_ingredients
+    @@all
   end
 end

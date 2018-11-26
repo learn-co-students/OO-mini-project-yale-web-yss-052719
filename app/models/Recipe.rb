@@ -2,17 +2,17 @@ class Recipe
 
   attr_reader :name
 
-  @@recipes = []
+  @@all = []
 
   def initialize(name)
-    @@recipes.append(self)
+    @@all.append(self)
 
     @name = name
   end
 
   # return all of the recipe instances
   def self.all
-    @@recipes
+    @@all
   end
 
   # return the recipe instance with the highest number of users

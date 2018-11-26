@@ -2,17 +2,17 @@ class User
 
   attr_reader :name
 
-  @@users = []
+  @@all = []
 
   def initialize(name)
-    @@users.append(self)
+    @@all.append(self)
 
     @name = name
   end
 
   # return all of the user instances
   def self.all
-    @@users
+    @@all
   end
 
   # return all of the recipes this user has recipe cards for

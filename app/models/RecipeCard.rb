@@ -5,10 +5,10 @@ class RecipeCard
 
   attr_reader :date, :rating, :user, :recipe
 
-  @@recipe_cards = []
+  @@all = []
 
   def initialize(recipe, user, date, rating)
-    @@recipe_cards.append(self)
+    @@all.append(self)
 
     @recipe = recipe
     @user = user
@@ -18,6 +18,6 @@ class RecipeCard
 
   # return all of the RecipeCard instances
   def self.all
-    @@recipe_cards
+    @@all
   end
 end
