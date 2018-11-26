@@ -19,6 +19,7 @@ RSpec.describe User do
   let(:omelette) { Recipe.new('Omelette') }
   let(:salad) { Recipe.new('Salad') }
   let(:fried_potatoes) { Recipe.new('Fried Potatoes') }
+  let(:bec) { Recipe.new('Bacon, Egg, and Cheese') }
 
   # Recipe cards
   let(:shinji_pancake) { shinji.add_recipe_card(pancake, Date.new, rand(100)) }
@@ -29,6 +30,7 @@ RSpec.describe User do
   let(:asuka_omelette) { asuka.add_recipe_card(omelette, Date.new, rand(100)) }
   let(:asuka_salad) { asuka.add_recipe_card(salad, Date.new, rand(100)) }
   let(:asuka_fried_potatoes) { asuka.add_recipe_card(fried_potatoes, Date.new, rand(100)) }
+  let(:asuka_bec) { asuka.add_recipe_card(bec, Date.new, rand(100)) }
 
   context '.all' do
     it 'should have all instances' do
@@ -88,13 +90,23 @@ RSpec.describe User do
       shinji_salad
       shinji_fried_potatoes
       asuka_pancake
+      asuka_omelette
       asuka_fried_potatoes
+      asuka_bec
     end
 
-    it 'should be ' do
+    it 'should be shinjis top three' do
       recipes = [shinji_pancake, shinji_omelette, shinji_salad, shinji_fried_potatoes]
-      expected = recipes.sort_by(&:rating).last(3).map(&:recipe)
-      expect(shinji.top_three_recipes).to match_array(expected)
+      expect(shinji.top_three_recipes).to match_array(build_expected(recipes))
+    end
+
+    it 'should be asukas top three' do
+      recipes = [asuka_pancake, asuka_omelette, asuka_fried_potatoes, asuka_bec]
+      expect(asuka.top_three_recipes).to match_array(build_expected(recipes))
+    end
+
+    def build_expected(recipes)
+      recipes.sort_by(&:rating).last(3).map(&:recipe)
     end
   end
 
