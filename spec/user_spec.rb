@@ -32,6 +32,14 @@ RSpec.describe User do
   let(:asuka_fried_potatoes) { asuka.add_recipe_card(fried_potatoes, Date.new, rand(100)) }
   let(:asuka_bec) { asuka.add_recipe_card(bec, Date.new, rand(100)) }
 
+  # Allergens
+  let(:a_shinji_flour) { Allergen.new(shinji, flour) }
+  let(:a_asuka_pepper) { Allergen.new(asuka, pepper) }
+
+  def getUserItems(_class, user)
+    _class.all.select { |rc| rc.user == user }
+  end
+
   context '.all' do
     it 'should have all instances' do
       expect(User.all).to eql(users)
@@ -41,10 +49,15 @@ RSpec.describe User do
   context '#add_recipe_card' do
     before do
       shinji_pancake
+      asuka_salad
     end
 
-    it 'should find recipe card' do
-      expect(RecipeCard.all.find { |rc| rc.user == shinji}).to eql(shinji_pancake)
+    it 'should find shinjis recipe card' do
+      expect(getUserItems(RecipeCard, shinji).first).to(eql(shinji_pancake))
+    end
+
+    it 'should find asukas recipe card' do
+      expect(getUserItems(RecipeCard, asuka).first).to(eql(asuka_salad))
     end
   end
 
@@ -111,7 +124,18 @@ RSpec.describe User do
   end
 
   context '#declare_allergen' do
-    it 'should be '
+    before do
+      a_shinji_flour
+      a_asuka_pepper
+    end
+
+    it 'should find shinjis allergen' do
+      expect(getUserItems(Allergen, shinji).first).to eql(a_shinji_flour)
+    end
+
+    it 'should find asukas allergen' do
+      expect(getUserItems(Allergen, asuka).first).to eql(a_asuka_pepper)
+    end
   end
 
 end
