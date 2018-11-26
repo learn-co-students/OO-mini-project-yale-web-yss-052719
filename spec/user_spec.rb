@@ -60,13 +60,11 @@ RSpec.describe User do
   end
 
   context '#most_recent_recipe' do
-    it 'should be ' do
-    end
+    it 'should be '
   end
 
   context '#top_three_recipes' do
-    it 'should be ' do
-    end
+    it 'should be '
   end
 
   context '#declare_allergen' do
