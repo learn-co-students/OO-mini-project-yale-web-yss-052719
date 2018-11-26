@@ -24,6 +24,7 @@ RSpec.describe User do
   let(:shinji_pancake) { shinji.add_recipe_card(pancake, Date.new, rand(100)) }
   let(:shinji_omelette) { shinji.add_recipe_card(omelette, Date.new, rand(100)) }
   let(:shinji_salad) { shinji.add_recipe_card(salad, Date.new, rand(100)) }
+  let(:shinji_fried_potatoes) { shinji.add_recipe_card(fried_potatoes, Date.new, rand(100)) }
   let(:asuka_pancake) { asuka.add_recipe_card(pancake, Date.new, rand(100)) }
   let(:asuka_omelette) { asuka.add_recipe_card(omelette, Date.new, rand(100)) }
   let(:asuka_salad) { asuka.add_recipe_card(salad, Date.new, rand(100)) }
@@ -57,14 +58,43 @@ RSpec.describe User do
     it 'should just be shinjis recipes' do
       expect(shinji.recipes).to eql([pancake, omelette, salad])
     end
+
+    it 'should just be asukas recipes' do
+      expect(asuka.recipes).to eql([pancake, fried_potatoes])
+    end
   end
 
   context '#most_recent_recipe' do
-    it 'should be '
+    before do
+      shinji_pancake
+      shinji_omelette
+      asuka_pancake
+      asuka_fried_potatoes
+    end
+
+    it 'should be omelette for shinji' do
+      expect(shinji.most_recent_recipe).to eql(omelette)
+    end
+
+    it 'should be fried potatoes for asuka' do
+      expect(asuka.most_recent_recipe).to eql(fried_potatoes)
+    end
   end
 
   context '#top_three_recipes' do
-    it 'should be '
+    before do
+      shinji_pancake
+      shinji_omelette
+      shinji_salad
+      shinji_fried_potatoes
+      asuka_pancake
+      asuka_fried_potatoes
+    end
+
+    it 'should be ' do
+      expected = [shinji_pancake, shinji_omelette, shinji_salad, shinji_fried_potatoes].sort_by(&:rating).last(3).map(&:recipe)
+      expect(shinji.top_three_recipes).to match_array(expected)
+    end
   end
 
   context '#declare_allergen' do
