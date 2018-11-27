@@ -113,4 +113,8 @@ RSpec.configure do |config|
     CLASS_LIST.each { |c| reset_class_vars(c) }
   end
 end
-#
+
+require 'simplecov'
+require 'simplecov-console'
+SimpleCov.formatter = SimpleCov::Formatter::Console
+SimpleCov.start
