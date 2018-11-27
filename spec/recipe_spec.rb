@@ -1,6 +1,11 @@
 require 'date'
 
 RSpec.describe Recipe do
+  # Users
+  let(:shinji) { User.new('Shinji') }
+  let(:asuka) { User.new('Asuka') }
+  let(:rei) { User.new('Rei') }
+
   # Ingredients
   let(:flour) { Ingredient.new('Flour') }
   let(:sugar) { Ingredient.new('Sugar') }
@@ -17,6 +22,13 @@ RSpec.describe Recipe do
   # Recipe Ingredients
   let(:pancake_ing) { [flour, sugar, egg] }
   let(:omelette_ing) { [egg, milk, green_pepper, onion] }
+
+  # Recipe cards
+  let(:shinji_pancake) { shinji.add_recipe_card(pancake, Date.new, rand(100)) }
+  let(:asuka_pancake) { asuka.add_recipe_card(pancake, Date.new, rand(100)) }
+  let(:rei_pancake) { rei.add_recipe_card(pancake, Date.new, rand(100)) }
+  let(:shinji_omelette) { shinji.add_recipe_card(omelette, Date.new, rand(100)) }
+  let(:asuka_omelette) { asuka.add_recipe_card(omelette, Date.new, rand(100)) }
 
   def getUserItems(_class, user)
     _class.all.select { |rc| rc.user == user }
@@ -58,7 +70,21 @@ RSpec.describe Recipe do
   end
 
   context '#users' do
-    it 'should'
+    before do
+      shinji_pancake
+      shinji_omelette
+      asuka_pancake
+      asuka_omelette
+      rei_pancake
+    end
+
+    it 'should give only users for pancake' do
+      expect(pancake.users).to eql([shinji, asuka, rei])
+    end
+
+    it 'should give only users for omelette' do
+      expect(omelette.users).to eql([shinji, asuka])
+    end
   end
 
   context '#allergens' do
@@ -68,5 +94,4 @@ RSpec.describe Recipe do
   context '.most_popular' do
     it 'should'
   end
-
 end
