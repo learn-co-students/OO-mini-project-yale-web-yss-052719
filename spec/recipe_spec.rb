@@ -29,6 +29,7 @@ RSpec.describe Recipe do
   let(:rei_pancake) { rei.add_recipe_card(pancake, Date.new, rand(100)) }
   let(:shinji_omelette) { shinji.add_recipe_card(omelette, Date.new, rand(100)) }
   let(:asuka_omelette) { asuka.add_recipe_card(omelette, Date.new, rand(100)) }
+  let(:rei_salad) { rei.add_recipe_card(salad, Date.new, rand(100)) }
 
   # Allergens
   let(:a_shinji_flour) { Allergen.new(shinji, flour) }
@@ -114,6 +115,17 @@ RSpec.describe Recipe do
   end
 
   context '.most_popular' do
-    it 'should'
+    before do
+      shinji_pancake
+      asuka_pancake
+      rei_pancake
+      shinji_omelette
+      asuka_omelette
+      rei_salad
+    end
+
+    it 'should find pancake' do
+      expect(Recipe.most_popular).to eql(pancake)
+    end
   end
 end
