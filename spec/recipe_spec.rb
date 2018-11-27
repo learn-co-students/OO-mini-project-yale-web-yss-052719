@@ -44,7 +44,7 @@ RSpec.describe Recipe do
   context '#add_ingredients' do
     it 'should receive ingredients for pancake' do
       mock_ri = class_double(RecipeIngredient)
-      mock_ri.as_stubbed_const(:transfer_nested_constants => true)
+      mock_ri.as_stubbed_const(transfer_nested_constants: true)
 
       expect(mock_ri).to receive(:new).with(pancake, flour)
       expect(mock_ri).to receive(:new).with(pancake, sugar)
