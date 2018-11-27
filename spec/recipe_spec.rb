@@ -30,6 +30,13 @@ RSpec.describe Recipe do
   let(:shinji_omelette) { shinji.add_recipe_card(omelette, Date.new, rand(100)) }
   let(:asuka_omelette) { asuka.add_recipe_card(omelette, Date.new, rand(100)) }
 
+  # Allergens
+  let(:a_shinji_flour) { Allergen.new(shinji, flour) }
+  let(:a_asuka_pepper) { Allergen.new(asuka, pepper) }
+  let(:a_asuka_onion) { Allergen.new(asuka, onion) }
+  let(:a_rei_flour) { Allergen.new(rei, flour) }
+  let(:a_rei_egg) { Allergen.new(rei, egg) }
+
   def getUserItems(_class, user)
     _class.all.select { |rc| rc.user == user }
   end
@@ -88,7 +95,22 @@ RSpec.describe Recipe do
   end
 
   context '#allergens' do
-    it 'should'
+    before do
+      pancake.add_ingredients(pancake_ing)
+      omelette.add_ingredients(omelette_ing)
+      a_shinji_flour
+      a_asuka_onion
+      a_rei_flour
+      a_rei_egg
+    end
+
+    it 'should get only allergen ingredients for pancake' do
+      expect(pancake.allergens).to match_array([egg, flour])
+    end
+
+    it 'should get only allergen ingredients for omelette' do
+      expect(omelette.allergens).to match_array([egg, onion])
+    end
   end
 
   context '.most_popular' do
