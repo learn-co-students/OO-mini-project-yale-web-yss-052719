@@ -38,10 +38,6 @@ RSpec.describe Recipe do
   let(:a_rei_flour) { Allergen.new(rei, flour) }
   let(:a_rei_egg) { Allergen.new(rei, egg) }
 
-  def getUserItems(_class, user)
-    _class.all.select { |rc| rc.user == user }
-  end
-
   context '.all' do
     it 'should have all instances' do
       expected = [pancake, omelette, salad]
