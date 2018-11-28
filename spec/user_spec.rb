@@ -124,18 +124,11 @@ RSpec.describe User do
   end
 
   context '#declare_allergen' do
-    before do
-      a_shinji_flour
-      a_asuka_pepper
-    end
-
-    it 'should find shinjis allergen' do
-      expect(getUserItems(Allergen, shinji).first).to eql(a_shinji_flour)
-    end
-
-    it 'should find asukas allergen' do
-      expect(getUserItems(Allergen, asuka).first).to eql(a_asuka_pepper)
+    it 'should receive ingredient for allergen' do
+      mock_a = class_double(Allergen)
+      mock_a.as_stubbed_const(transfer_nested_constants: true)
+      expect(mock_a).to receive(:new).with(shinji, flour)
+      shinji.declare_allergen(flour)
     end
   end
-
 end
