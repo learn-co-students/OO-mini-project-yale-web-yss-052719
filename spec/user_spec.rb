@@ -8,9 +8,16 @@ RSpec.describe User do
 
   # Ingredients
   let(:flour) { Ingredient.new('Flour') }
+  let(:sugar) { Ingredient.new('Sugar') }
+  let(:milk) { Ingredient.new('Milk') }
+  let(:green_pepper) { Ingredient.new('Green Pepper') }
+  let(:onion) { Ingredient.new('Onion') }
   let(:pepper) { Ingredient.new('Pepper') }
   let(:carrot) { Ingredient.new('Carrot') }
-  let(:lettuce) { Ingredient.new('Lettuce')}
+  let(:lettuce) { Ingredient.new('Lettuce') }
+  let(:bacon) { Ingredient.new('Bacon') }
+  let(:egg) { Ingredient.new('Egg') }
+  let(:cheese) { Ingredient.new('Cheese') }
 
   # Recipes
   let(:pancake) { Recipe.new('Pancake') }
@@ -18,6 +25,12 @@ RSpec.describe User do
   let(:salad) { Recipe.new('Salad') }
   let(:fried_potatoes) { Recipe.new('Fried Potatoes') }
   let(:bec) { Recipe.new('Bacon, Egg, and Cheese') }
+
+  # Recipe Ingredients
+  let(:pancake_ing) { [flour, sugar, egg] }
+  let(:omelette_ing) { [egg, milk, green_pepper, onion] }
+  let(:salad_ing) { [lettuce, carrot, onion, green_pepper] }
+  let(:bec_ing) { [bacon, egg, cheese] }
 
   # Recipe cards
   let(:shinji_pancake) { shinji.add_recipe_card(pancake, Date.new, rand(100)) }
@@ -34,6 +47,8 @@ RSpec.describe User do
   let(:a_shinji_flour) { Allergen.new(shinji, flour) }
   let(:a_shinji_pepper) { Allergen.new(shinji, pepper) }
   let(:a_asuka_pepper) { Allergen.new(asuka, pepper) }
+  let(:a_asuka_egg) { Allergen.new(asuka, egg) }
+  let(:a_rei_bacon) { Allergen.new(rei, bacon) }
 
   def getUserItems(_class, user)
     _class.all.select { |rc| rc.user == user }
@@ -133,7 +148,19 @@ RSpec.describe User do
   end
 
   context '#allergens' do
-    it 'should return ingredients user is allergic to'
+    before do
+      a_shinji_flour
+      a_shinji_pepper
+      a_asuka_egg
+    end
+
+    it 'should return ingredients shinji is allergic to' do
+      expect(shinji.allergens).to match_array([flour, pepper])
+    end
+
+    it 'should return ingredients asuka is allergic to' do
+      expect(shinji.allergens).to match_array([egg])
+    end
   end
 
   context '#safe_recipes' do
