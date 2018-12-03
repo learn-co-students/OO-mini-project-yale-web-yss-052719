@@ -28,7 +28,7 @@ RSpec.describe User do
 
   # Recipe Ingredients
   let(:pancake_ing) { [flour, sugar, egg] }
-  let(:omelette_ing) { [egg, milk, green_pepper, onion] }
+  let(:omelette_ing) { [egg, milk, green_pepper, onion, cheese] }
   let(:salad_ing) { [lettuce, carrot, onion, green_pepper] }
   let(:bec_ing) { [bacon, egg, cheese] }
 
@@ -37,6 +37,7 @@ RSpec.describe User do
   let(:shinji_omelette) { shinji.add_recipe_card(omelette, Date.new, rand(100)) }
   let(:shinji_salad) { shinji.add_recipe_card(salad, Date.new, rand(100)) }
   let(:shinji_fried_potatoes) { shinji.add_recipe_card(fried_potatoes, Date.new, rand(100)) }
+  let(:shinji_bec) { shinji.add_recipe_card(bec, Date.new, rand(100)) }
   let(:asuka_pancake) { asuka.add_recipe_card(pancake, Date.new, rand(100)) }
   let(:asuka_omelette) { asuka.add_recipe_card(omelette, Date.new, rand(100)) }
   let(:asuka_salad) { asuka.add_recipe_card(salad, Date.new, rand(100)) }
@@ -46,9 +47,7 @@ RSpec.describe User do
   # Allergens
   let(:a_shinji_flour) { Allergen.new(shinji, flour) }
   let(:a_shinji_pepper) { Allergen.new(shinji, pepper) }
-  let(:a_asuka_pepper) { Allergen.new(asuka, pepper) }
   let(:a_asuka_egg) { Allergen.new(asuka, egg) }
-  let(:a_rei_bacon) { Allergen.new(rei, bacon) }
 
   def getUserItems(_class, user)
     _class.all.select { |rc| rc.user == user }
@@ -164,6 +163,34 @@ RSpec.describe User do
   end
 
   context '#safe_recipes' do
-    it 'should return recipes which the user is not allergic to'
+    before do
+      # Add ingredients to recipes
+      pancake.add_ingredients(pancake_ing)
+      omelette.add_ingredients(omelette_ing)
+      salad.add_ingredients(salad_ing)
+      bec.add_ingredients(bec_ing)
+
+      # Add recipe cards
+      shinji_pancake
+      shinji_omelette
+      shinji_salad
+      shinji_bec
+      asuka_pancake
+      asuka_omelette
+      asuka_salad
+      asuka_bec
+
+      # Specify allergens
+      a_shinji_egg_
+      a_asuka_green_pepper
+    end
+
+    it 'should return recipes which shinji is not allergic to' do
+      expect(shinji.safe_recipes).to eql([salad])
+    end
+
+    it 'should return recipes which asuka is not allergic to' do
+      expect(asuka.safe_recipes).to match_array([pancake, bec])
+    end
   end
 end
