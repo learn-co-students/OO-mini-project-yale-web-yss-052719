@@ -55,10 +55,6 @@ RSpec.describe User do
   let(:a_asuka_egg) { Allergen.new(asuka, egg) }
   let(:a_asuka_green_pepper) { Allergen.new(asuka, green_pepper) }
 
-  def get_user_items(_class, user)
-    _class.all.select { |rc| rc.user == user }
-  end
-
   # check that all instances are accounted for
   context '.all' do
     it 'should have all instances' do
