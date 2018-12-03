@@ -68,18 +68,17 @@ RSpec.describe User do
   end
 
   context '#add_recipe_card' do
-    #FIXME: use mock objects
-    before do
-      shinji_pancake
-      asuka_salad
-    end
+    it 'should receive shinji for pancake' do
+      # use mock objects to test calls to Class.new
+      mock_rc = class_double(RecipeCard)
+      mock_rc.as_stubbed_const(transfer_nested_constants: true)
 
-    it 'should find shinjis recipe card' do
-      expect(get_user_items(RecipeCard, shinji).first).to(eql(shinji_pancake))
-    end
+      date = Date.new
+      rating = rand(100)
+      # mock object should receive expected arguments
+      expect(mock_rc).to receive(:new).with(pancake, shinji, date, rating)
 
-    it 'should find asukas recipe card' do
-      expect(get_user_items(RecipeCard, asuka).first).to(eql(asuka_salad))
+      shinji.add_recipe_card(pancake, date, rating)
     end
   end
 
