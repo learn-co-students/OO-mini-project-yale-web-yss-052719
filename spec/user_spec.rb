@@ -131,4 +131,12 @@ RSpec.describe User do
       shinji.declare_allergen(flour)
     end
   end
+
+  context '#allergens' do
+    it 'should return ingredients user is allergic to'
+  end
+
+  context '#safe_recipes' do
+    it 'should return recipes which the user is not allergic to'
+  end
 end
