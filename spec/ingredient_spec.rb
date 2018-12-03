@@ -25,5 +25,4 @@ RSpec.describe Ingredient do
       expect(Ingredient.most_common_allergen).to eql(flour)
     end
   end
-
 end

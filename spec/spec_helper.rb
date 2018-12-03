@@ -99,7 +99,7 @@ RSpec.configure do |config|
 =end
 end
 
-Dir["./app/models/*.rb"].each { |file| require file }
+Dir['./app/models/*.rb'].each { |file| require file }
 require 'pry'
 
 CLASS_LIST = [Allergen, Ingredient, Recipe, RecipeCard, RecipeIngredient, User].freeze

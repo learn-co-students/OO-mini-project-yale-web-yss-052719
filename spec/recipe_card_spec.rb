@@ -62,5 +62,4 @@ RSpec.describe RecipeCard do
       expect { rc_ps.rating = double }.to raise_error(NoMethodError)
     end
   end
-
 end

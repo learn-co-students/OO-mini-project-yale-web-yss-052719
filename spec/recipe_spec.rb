@@ -33,7 +33,6 @@ RSpec.describe Recipe do
 
   # Allergens
   let(:a_shinji_flour) { Allergen.new(shinji, flour) }
-  let(:a_asuka_pepper) { Allergen.new(asuka, pepper) }
   let(:a_asuka_onion) { Allergen.new(asuka, onion) }
   let(:a_rei_flour) { Allergen.new(rei, flour) }
   let(:a_rei_egg) { Allergen.new(rei, egg) }

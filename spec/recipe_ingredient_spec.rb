@@ -10,7 +10,7 @@ RSpec.describe RecipeIngredient do
   let(:ri_pf) { RecipeIngredient.new(pancake, flour) }
   let(:ri_op) { RecipeIngredient.new(omelette, pepper) }
   let(:ri_sc) { RecipeIngredient.new(salad, carrot) }
- 
+
   context '.all' do
     it 'should have all instances' do
       expected = [ri_pf, ri_op, ri_sc]
@@ -36,6 +36,5 @@ RSpec.describe RecipeIngredient do
     it 'should not have recipe setter' do
       expect { ri_pf.recipe = double }.to raise_error(NoMethodError)
     end
-
   end
 end
