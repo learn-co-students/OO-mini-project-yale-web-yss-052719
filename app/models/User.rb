@@ -52,4 +52,11 @@ class User
   def my_recipe_cards
     RecipeCard.all.select { |card| card.user == self }
   end
+
+  # return all recipes that do not contain ingredients the user is allergic to
+  def safe_recipes
+    recipes.reject do |recipe|
+      recipe.ingredients.any? { |ingredient| allergens.include?(ingredient) }
+    end
+  end
 end
