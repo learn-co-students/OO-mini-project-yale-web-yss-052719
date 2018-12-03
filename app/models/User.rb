@@ -32,6 +32,11 @@ class User
     Allergen.new(self, ingredient)
   end
 
+  # return all of the ingredients this user is allergic to
+  def allergens
+    Allergen.all.select { |allergen| allergen.user == self }.map { |allergen| allergen.ingredient }
+  end
+
   # return the top three highest rated recipes for this user
   def top_three_recipes
     # RecipeCard.all.sort_by {|x| -x.rating }.first(3).map {|card| card.recipe}
