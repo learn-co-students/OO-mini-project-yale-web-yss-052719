@@ -11,11 +11,10 @@ RSpec.describe Allergen do
   let(:a_ap) { Allergen.new(asuka, pepper) }
   let(:a_rc) { Allergen.new(rei, carrot) }
 
-  let(:allergens) { [a_sf, a_ap, a_rc] }
-
   context '.all' do
     it 'should have all instances' do
-      expect(Allergen.all).to eql(allergens)
+      expected = [a_sf, a_ap, a_rc]
+      expect(Allergen.all).to eql(expected)
     end
   end
 
