@@ -24,6 +24,7 @@ RSpec.describe Allergen do
     end
 
     it 'should not have ingredient setter' do
+      # noinspection RubyResolve
       expect { a_sf.ingredient = double }.to raise_error(NoMethodError)
     end
   end
@@ -34,6 +35,7 @@ RSpec.describe Allergen do
     end
 
     it 'should not have user setter' do
+      # noinspection RubyResolve
       expect { a_sf.user = double }.to raise_error(NoMethodError)
     end
   end
