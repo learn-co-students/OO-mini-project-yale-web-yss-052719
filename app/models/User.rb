@@ -39,9 +39,10 @@ class User
 
   # return the top three highest rated recipes for this user
   def top_three_recipes
-    # RecipeCard.all.sort_by {|x| -x.rating }.first(3).map {|card| card.recipe}
-    # RecipeCard.all.sort_by {|x| -x.rating }.first(3).map(&:recipe)
-    my_recipe_cards.sort { |a, b| b.rating <=> a.rating }.first(3).map { |card| card.recipe }
+    my_recipe_cards.sort_by { |x| x.rating }.reverse.first(3).map { |card| card.recipe }
+
+    # Another implementation:
+    # my_recipe_cards.sort { |a, b| b.rating <=> a.rating }.first(3).map { |card| card.recipe }
   end
 
   # return the recipe most recently added to the user's cookbook
