@@ -43,6 +43,10 @@ RSpec.describe User do
   let(:asuka_salad) { asuka.add_recipe_card(salad, Date.new, rand(100)) }
   let(:asuka_fried_potatoes) { asuka.add_recipe_card(fried_potatoes, Date.new, rand(100)) }
   let(:asuka_bec) { asuka.add_recipe_card(bec, Date.new, rand(100)) }
+  let(:rei_pancake) { rei.add_recipe_card(pancake, Date.new, rand(100)) }
+  let(:rei_omelette) { rei.add_recipe_card(omelette, Date.new, rand(100)) }
+  let(:rei_salad) { rei.add_recipe_card(salad, Date.new, rand(100)) }
+  let(:rei_bec) { rei.add_recipe_card(bec, Date.new, rand(100)) }
 
   # Allergens
   let(:a_shinji_flour) { Allergen.new(shinji, flour) }
@@ -181,6 +185,10 @@ RSpec.describe User do
       asuka_omelette
       asuka_salad
       asuka_bec
+      rei_pancake
+      rei_omelette
+      rei_salad
+      rei_bec
 
       # Specify allergens
       a_shinji_egg
