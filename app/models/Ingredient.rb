@@ -1,6 +1,5 @@
-
+# noinspection RubyClassVariableUsageInspection
 class Ingredient
-
   attr_reader :name
 
   @@all = []

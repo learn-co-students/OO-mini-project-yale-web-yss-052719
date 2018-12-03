@@ -1,7 +1,8 @@
 # RecipeIngredient is the join between an ingredient and a recipe.
 # This is a has-many-through relationship
+#
+# noinspection RubyClassVariableUsageInspection
 class RecipeIngredient
-
   attr_reader :ingredient, :recipe
 
   @@all = []

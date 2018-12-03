@@ -1,3 +1,4 @@
+# noinspection RubyClassVariableUsageInspection
 class Recipe
 
   attr_reader :name

@@ -1,7 +1,8 @@
 # An Allergen is a join between a user and an ingredient.
 # This is a has-many-through relationship.
+#
+# noinspection RubyClassVariableUsageInspection
 class Allergen
-
   attr_reader :user, :ingredient
 
   @@all = []
