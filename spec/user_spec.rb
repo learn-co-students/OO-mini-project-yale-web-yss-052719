@@ -63,7 +63,7 @@ RSpec.describe User do
   context '.all' do
     it 'should have all instances' do
       expected = [shinji, asuka, rei]
-      expect(User.all).to eql(expected)
+      expect(User.all).to match_array(expected)
     end
   end
 
@@ -95,11 +95,11 @@ RSpec.describe User do
     end
 
     it 'should just be shinjis recipes' do
-      expect(shinji.recipes).to eql([pancake, omelette, salad])
+      expect(shinji.recipes).to match_array([pancake, omelette, salad])
     end
 
     it 'should just be asukas recipes' do
-      expect(asuka.recipes).to eql([pancake, fried_potatoes])
+      expect(asuka.recipes).to match_array([pancake, fried_potatoes])
     end
   end
 

@@ -7,7 +7,7 @@ RSpec.describe Ingredient do
   context '.all' do
     it 'should have all instances' do
       expected = [flour, pepper, carrot]
-      expect(Ingredient.all).to eql(expected)
+      expect(Ingredient.all).to match_array(expected)
     end
   end
 

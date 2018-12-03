@@ -15,7 +15,7 @@ RSpec.describe Allergen do
   context '.all' do
     it 'should have all instances' do
       expected = [a_sf, a_ap, a_rc]
-      expect(Allergen.all).to eql(expected)
+      expect(Allergen.all).to match_array(expected)
     end
   end
 

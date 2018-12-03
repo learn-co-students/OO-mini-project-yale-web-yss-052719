@@ -15,7 +15,7 @@ RSpec.describe RecipeIngredient do
   context '.all' do
     it 'should have all instances' do
       expected = [ri_pf, ri_op, ri_sc]
-      expect(RecipeIngredient.all).to eql(expected)
+      expect(RecipeIngredient.all).to match_array(expected)
     end
   end
 

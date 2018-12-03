@@ -41,7 +41,7 @@ RSpec.describe Recipe do
   context '.all' do
     it 'should have all instances' do
       expected = [pancake, omelette, salad]
-      expect(Recipe.all).to eql(expected)
+      expect(Recipe.all).to match_array(expected)
     end
   end
 
@@ -67,11 +67,11 @@ RSpec.describe Recipe do
     end
 
     it 'should have ingredients for pancake' do
-      expect(pancake.ingredients).to eql(pancake_ing)
+      expect(pancake.ingredients).to match_array(pancake_ing)
     end
 
     it 'should have ingredients for omelette' do
-      expect(omelette.ingredients).to eql(omelette_ing)
+      expect(omelette.ingredients).to match_array(omelette_ing)
     end
   end
 
@@ -88,11 +88,11 @@ RSpec.describe Recipe do
     end
 
     it 'should give only users for pancake' do
-      expect(pancake.users).to eql([shinji, asuka, rei])
+      expect(pancake.users).to match_array([shinji, asuka, rei])
     end
 
     it 'should give only users for omelette' do
-      expect(omelette.users).to eql([shinji, asuka])
+      expect(omelette.users).to match_array([shinji, asuka])
     end
   end
 

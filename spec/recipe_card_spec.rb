@@ -20,7 +20,7 @@ RSpec.describe RecipeCard do
   context '.all' do
     it 'should have all instances' do
       expected = [rc_ps, rc_oa, rc_sr]
-      expect(RecipeCard.all).to eql(expected)
+      expect(RecipeCard.all).to match_array(expected)
     end
   end
 
