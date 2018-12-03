@@ -18,7 +18,7 @@ class User
 
   # return all of the recipes this user has recipe cards for
   def recipes
-    my_recipe_cards.map { |card| card.recipe }
+    recipe_cards.map { |card| card.recipe }
   end
 
   # accept a recipe instance as an argument, as well as a date and rating, and
@@ -40,19 +40,19 @@ class User
 
   # return the top three highest rated recipes for this user
   def top_three_recipes
-    my_recipe_cards.sort_by { |x| x.rating }.reverse.first(3).map { |card| card.recipe }
+    recipe_cards.sort_by { |x| x.rating }.reverse.first(3).map { |card| card.recipe }
 
     # Another implementation:
-    # my_recipe_cards.sort { |a, b| b.rating <=> a.rating }.first(3).map { |card| card.recipe }
+    # recipe_cards.sort { |a, b| b.rating <=> a.rating }.first(3).map { |card| card.recipe }
   end
 
   # return the recipe most recently added to the user's cookbook
   def most_recent_recipe
-    my_recipe_cards.last.recipe
+    recipe_cards.last.recipe
   end
 
   # Helper methods to get this user's recipe cards
-  def my_recipe_cards
+  def recipe_cards
     RecipeCard.all.select { |card| card.user == self }
   end
 
