@@ -19,7 +19,7 @@ RSpec.describe Allergen do
   end
 
   context 'ingredient' do
-    it 'should have ingredient gettr' do
+    it 'should have ingredient getter' do
       expect(a_sf.ingredient).to eql(flour)
     end
 
@@ -30,7 +30,7 @@ RSpec.describe Allergen do
   end
 
   context 'user' do
-    it 'should have user gettr' do
+    it 'should have user getter' do
       expect(a_sf.user).to eql(shinji)
     end
 

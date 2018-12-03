@@ -24,7 +24,7 @@ RSpec.describe RecipeCard do
   end
 
   context 'recipe' do
-    it 'should have recipe gettr' do
+    it 'should have recipe getter' do
       expect(rc_ps.recipe).to eql(pancake)
     end
 
@@ -34,7 +34,7 @@ RSpec.describe RecipeCard do
   end
 
   context 'user' do
-    it 'should have user gettr' do
+    it 'should have user getter' do
       expect(rc_ps.user).to eql(shinji)
     end
 
@@ -44,7 +44,7 @@ RSpec.describe RecipeCard do
   end
 
   context 'date' do
-    it 'should have date gettr' do
+    it 'should have date getter' do
       expect(rc_ps.date).to eql(date)
     end
 
@@ -54,7 +54,7 @@ RSpec.describe RecipeCard do
   end
 
   context 'rating' do
-    it 'should have rating gettr' do
+    it 'should have rating getter' do
       expect(rc_ps.rating).to eql(rating)
     end
 
