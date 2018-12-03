@@ -37,6 +37,7 @@ RSpec.describe Recipe do
   let(:a_rei_flour) { Allergen.new(rei, flour) }
   let(:a_rei_egg) { Allergen.new(rei, egg) }
 
+  # check that all instances are accounted for
   context '.all' do
     it 'should have all instances' do
       expected = [pancake, omelette, salad]
@@ -46,9 +47,11 @@ RSpec.describe Recipe do
 
   context '#add_ingredients' do
     it 'should receive ingredients for pancake' do
+      # use mock objects to test calls to Class.new
       mock_ri = class_double(RecipeIngredient)
       mock_ri.as_stubbed_const(transfer_nested_constants: true)
 
+      # mock object should recieve new three times with each recipe and ingredient
       expect(mock_ri).to receive(:new).with(pancake, flour)
       expect(mock_ri).to receive(:new).with(pancake, sugar)
       expect(mock_ri).to receive(:new).with(pancake, egg)
@@ -73,7 +76,10 @@ RSpec.describe Recipe do
   end
 
   context '#users' do
+    # instantiate objects to build data model
     before do
+      # test with more than one user
+      # test with more than one recipe card
       shinji_pancake
       shinji_omelette
       asuka_pancake
@@ -91,7 +97,10 @@ RSpec.describe Recipe do
   end
 
   context '#allergens' do
+    # instantiate objects to build data model
     before do
+      # test with more than one user
+      # test with more than one allergen
       pancake.add_ingredients(pancake_ing)
       omelette.add_ingredients(omelette_ing)
       a_shinji_flour
@@ -110,7 +119,10 @@ RSpec.describe Recipe do
   end
 
   context '.most_popular' do
+    # instantiate objects to build data model
     before do
+      # test with more than one user
+      # test with more than one recipe card
       shinji_pancake
       asuka_pancake
       rei_pancake

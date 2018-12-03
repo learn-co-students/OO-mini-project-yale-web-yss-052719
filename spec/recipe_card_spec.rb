@@ -16,6 +16,7 @@ RSpec.describe RecipeCard do
   let(:rc_oa) { RecipeCard.new(omelette, asuka, date, rating) }
   let(:rc_sr) { RecipeCard.new(salad, rei, date, rating) }
 
+  # check that all instances are accounted for
   context '.all' do
     it 'should have all instances' do
       expected = [rc_ps, rc_oa, rc_sr]
@@ -23,6 +24,7 @@ RSpec.describe RecipeCard do
     end
   end
 
+  # check mutators
   context 'recipe' do
     it 'should have recipe getter' do
       expect(rc_ps.recipe).to eql(pancake)

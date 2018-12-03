@@ -11,6 +11,7 @@ RSpec.describe Allergen do
   let(:a_ap) { Allergen.new(asuka, pepper) }
   let(:a_rc) { Allergen.new(rei, carrot) }
 
+  # check that all instances are accounted for
   context '.all' do
     it 'should have all instances' do
       expected = [a_sf, a_ap, a_rc]
@@ -18,6 +19,7 @@ RSpec.describe Allergen do
     end
   end
 
+  # check mutators
   context 'ingredient' do
     it 'should have ingredient getter' do
       expect(a_sf.ingredient).to eql(flour)

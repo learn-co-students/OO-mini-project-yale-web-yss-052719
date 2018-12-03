@@ -59,6 +59,7 @@ RSpec.describe User do
     _class.all.select { |rc| rc.user == user }
   end
 
+  # check that all instances are accounted for
   context '.all' do
     it 'should have all instances' do
       expected = [shinji, asuka, rei]
@@ -67,6 +68,7 @@ RSpec.describe User do
   end
 
   context '#add_recipe_card' do
+    #FIXME: use mock objects
     before do
       shinji_pancake
       asuka_salad
@@ -82,7 +84,10 @@ RSpec.describe User do
   end
 
   context '#recipes' do
+    # instantiate objects to build data model
     before do
+      # test with more than one user
+      # test with more than one recipe card
       shinji_pancake
       shinji_omelette
       shinji_salad
@@ -100,7 +105,10 @@ RSpec.describe User do
   end
 
   context '#most_recent_recipe' do
+    # instantiate objects to build data model
     before do
+      # test with more than one user
+      # test with more than one recipe card
       shinji_pancake
       shinji_omelette
       asuka_pancake
@@ -117,7 +125,11 @@ RSpec.describe User do
   end
 
   context '#top_three_recipes' do
+    # instantiate objects to build data model
     before do
+      # test with more than one user
+      # test with more than one recipe card
+      # test with enough more than 3 cards for each user
       shinji_pancake
       shinji_omelette
       shinji_salad
@@ -145,15 +157,21 @@ RSpec.describe User do
 
   context '#declare_allergen' do
     it 'should receive ingredient for allergen' do
+      # use mock objects to test calls to Class.new
       mock_a = class_double(Allergen)
       mock_a.as_stubbed_const(transfer_nested_constants: true)
+
+      # mock object should receive new user and item
       expect(mock_a).to receive(:new).with(shinji, flour)
       shinji.declare_allergen(flour)
     end
   end
 
   context '#allergens' do
+    # instantiate objects to build data model
     before do
+      # test with more than one user
+      # test with more than one allergen
       a_shinji_flour
       a_shinji_pepper
       a_asuka_egg
@@ -169,7 +187,13 @@ RSpec.describe User do
   end
 
   context '#safe_recipes' do
+    # instantiate objects to build data model
     before do
+      # test with more than one user
+      # test with more than one allergen
+      # use a different allergen for each user
+      # have one user with no allergens
+
       # Add ingredients to recipes
       pancake.add_ingredients(pancake_ing)
       omelette.add_ingredients(omelette_ing)

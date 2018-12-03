@@ -11,6 +11,7 @@ RSpec.describe RecipeIngredient do
   let(:ri_op) { RecipeIngredient.new(omelette, pepper) }
   let(:ri_sc) { RecipeIngredient.new(salad, carrot) }
 
+  # check that all instances are accounted for
   context '.all' do
     it 'should have all instances' do
       expected = [ri_pf, ri_op, ri_sc]
@@ -18,6 +19,7 @@ RSpec.describe RecipeIngredient do
     end
   end
 
+  # check mutators
   context 'ingredient' do
     it 'should have ingredient gettr' do
       expect(ri_pf.ingredient).to eql(flour)
