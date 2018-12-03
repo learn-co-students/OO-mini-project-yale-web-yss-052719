@@ -16,12 +16,10 @@ RSpec.describe RecipeCard do
   let(:rc_oa) { RecipeCard.new(omelette, asuka, date, rating) }
   let(:rc_sr) { RecipeCard.new(salad, rei, date, rating) }
 
-  let(:recipe_cards) { [rc_ps, rc_oa, rc_sr] }
-
   context '.all' do
-
     it 'should have all instances' do
-      expect(RecipeCard.all).to eql(recipe_cards)
+      expected = [rc_ps, rc_oa, rc_sr]
+      expect(RecipeCard.all).to eql(expected)
     end
   end
 
