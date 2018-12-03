@@ -194,5 +194,9 @@ RSpec.describe User do
     it 'should return recipes which asuka is not allergic to' do
       expect(asuka.safe_recipes).to match_array([pancake, bec])
     end
+
+    it 'should return all recipes for rei' do
+      expect(rei.safe_recipes).to match_array([pancake, omelette, salad, bec])
+    end
   end
 end
