@@ -47,7 +47,9 @@ RSpec.describe User do
   # Allergens
   let(:a_shinji_flour) { Allergen.new(shinji, flour) }
   let(:a_shinji_pepper) { Allergen.new(shinji, pepper) }
+  let(:a_shinji_egg) { Allergen.new(shinji, egg) }
   let(:a_asuka_egg) { Allergen.new(asuka, egg) }
+  let(:a_asuka_green_pepper) { Allergen.new(asuka, green_pepper) }
 
   def getUserItems(_class, user)
     _class.all.select { |rc| rc.user == user }
