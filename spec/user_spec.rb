@@ -6,8 +6,6 @@ RSpec.describe User do
   let(:asuka) { User.new('Asuka') }
   let(:rei) { User.new('Rei') }
 
-  let(:users) { [shinji, asuka, rei] }
-
   # Ingredients
   let(:flour) { Ingredient.new('Flour') }
   let(:pepper) { Ingredient.new('Pepper') }
@@ -34,6 +32,7 @@ RSpec.describe User do
 
   # Allergens
   let(:a_shinji_flour) { Allergen.new(shinji, flour) }
+  let(:a_shinji_pepper) { Allergen.new(shinji, pepper) }
   let(:a_asuka_pepper) { Allergen.new(asuka, pepper) }
 
   def getUserItems(_class, user)
@@ -42,7 +41,8 @@ RSpec.describe User do
 
   context '.all' do
     it 'should have all instances' do
-      expect(User.all).to eql(users)
+      expected = [shinji, asuka, rei]
+      expect(User.all).to eql(expected)
     end
   end
 

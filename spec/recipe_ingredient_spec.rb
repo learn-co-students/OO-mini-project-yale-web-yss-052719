@@ -11,11 +11,10 @@ RSpec.describe RecipeIngredient do
   let(:ri_op) { RecipeIngredient.new(omelette, pepper) }
   let(:ri_sc) { RecipeIngredient.new(salad, carrot) }
  
-  let(:recipe_ingredients) { [ri_pf, ri_op, ri_sc] }
-
   context '.all' do
     it 'should have all instances' do
-      expect(RecipeIngredient.all).to eql(recipe_ingredients)
+      expected = [ri_pf, ri_op, ri_sc]
+      expect(RecipeIngredient.all).to eql(expected)
     end
   end
 
