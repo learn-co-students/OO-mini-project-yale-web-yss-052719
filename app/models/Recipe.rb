@@ -1,6 +1,6 @@
 # noinspection RubyClassVariableUsageInspection
 class Recipe
-
+  # User readers instead of explicit methods
   attr_reader :name
 
   @@all = []
@@ -25,6 +25,8 @@ class Recipe
       # include this particular recipe
       RecipeCard.all.select do |card|
         card.recipe == recipe
+        # count the results
+        # do ... end.count is the same as { ... }.count
       end.count
     end
   end
@@ -40,7 +42,10 @@ class Recipe
 
   # return all of the ingredients in this recipe that are allergens
   def allergens
+    # Iterate over all the ingredients in this recipe
     ingredients.select do |ingredient|
+      # Make an array of all ingredients added as an allergen and use uniq to remove
+      # duplicates. Then check if this list contains the current ingredient.
       Allergen.all.map { |allergen| allergen.ingredient }.uniq.include?(ingredient)
     end
   end

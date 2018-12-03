@@ -3,6 +3,7 @@
 #
 # noinspection RubyClassVariableUsageInspection
 class RecipeIngredient
+  # User readers instead of explicit methods
   attr_reader :ingredient, :recipe
 
   @@all = []

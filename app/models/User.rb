@@ -1,5 +1,6 @@
 # noinspection RubyClassVariableUsageInspection
 class User
+  # User readers instead of explicit methods
   attr_reader :name
 
   @@all = []
@@ -50,13 +51,16 @@ class User
     my_recipe_cards.last.recipe
   end
 
+  # Helper methods to get this user's recipe cards
   def my_recipe_cards
     RecipeCard.all.select { |card| card.user == self }
   end
 
   # return all recipes that do not contain ingredients the user is allergic to
   def safe_recipes
+    # For all this user's recipes, remove if any of the ingredients are allergens
     recipes.reject do |recipe|
+      # If any ingredient is found in this user's allergens, return true
       recipe.ingredients.any? { |ingredient| allergens.include?(ingredient) }
     end
   end

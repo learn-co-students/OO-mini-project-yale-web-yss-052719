@@ -3,6 +3,7 @@
 #
 # noinspection RubyClassVariableUsageInspection
 class Allergen
+  # User readers instead of explicit methods
   attr_reader :user, :ingredient
 
   @@all = []

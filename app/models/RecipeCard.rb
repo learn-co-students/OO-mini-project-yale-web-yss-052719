@@ -3,7 +3,7 @@
 #
 # noinspection RubyClassVariableUsageInspection
 class RecipeCard
-
+  # User readers instead of explicit methods
   attr_reader :date, :rating, :user, :recipe
 
   @@all = []
