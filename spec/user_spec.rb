@@ -181,7 +181,7 @@ RSpec.describe User do
       asuka_bec
 
       # Specify allergens
-      a_shinji_egg_
+      a_shinji_egg
       a_asuka_green_pepper
     end
 
