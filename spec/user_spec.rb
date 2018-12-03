@@ -160,7 +160,7 @@ RSpec.describe User do
     end
 
     it 'should return ingredients asuka is allergic to' do
-      expect(shinji.allergens).to match_array([egg])
+      expect(asuka.allergens).to match_array([egg])
     end
   end
 
