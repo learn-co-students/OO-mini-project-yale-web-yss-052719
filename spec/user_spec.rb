@@ -55,7 +55,7 @@ RSpec.describe User do
   let(:a_asuka_egg) { Allergen.new(asuka, egg) }
   let(:a_asuka_green_pepper) { Allergen.new(asuka, green_pepper) }
 
-  def getUserItems(_class, user)
+  def get_user_items(_class, user)
     _class.all.select { |rc| rc.user == user }
   end
 
@@ -73,11 +73,11 @@ RSpec.describe User do
     end
 
     it 'should find shinjis recipe card' do
-      expect(getUserItems(RecipeCard, shinji).first).to(eql(shinji_pancake))
+      expect(get_user_items(RecipeCard, shinji).first).to(eql(shinji_pancake))
     end
 
     it 'should find asukas recipe card' do
-      expect(getUserItems(RecipeCard, asuka).first).to(eql(asuka_salad))
+      expect(get_user_items(RecipeCard, asuka).first).to(eql(asuka_salad))
     end
   end
 
