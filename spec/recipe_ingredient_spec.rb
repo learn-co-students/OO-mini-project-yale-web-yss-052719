@@ -24,6 +24,7 @@ RSpec.describe RecipeIngredient do
     end
 
     it 'should not have ingredient setter' do
+      # noinspection RubyResolve
       expect { ri_pf.ingredient = double }.to raise_error(NoMethodError)
     end
   end
@@ -34,6 +35,7 @@ RSpec.describe RecipeIngredient do
     end
 
     it 'should not have recipe setter' do
+      # noinspection RubyResolve
       expect { ri_pf.recipe = double }.to raise_error(NoMethodError)
     end
   end

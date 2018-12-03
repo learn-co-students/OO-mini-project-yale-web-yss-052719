@@ -99,6 +99,7 @@ RSpec.configure do |config|
 =end
 end
 
+# noinspection RubyResolve
 Dir['./app/models/*.rb'].each { |file| require file }
 require 'pry'
 

@@ -1,3 +1,4 @@
+# noinspection RubyClassVariableUsageInspection
 class User
   attr_reader :name
 

@@ -29,6 +29,7 @@ RSpec.describe RecipeCard do
     end
 
     it 'should not have recipe setter' do
+      # noinspection RubyResolve
       expect { rc_ps.recipe = double } .to raise_error(NoMethodError)
     end
   end
@@ -39,6 +40,7 @@ RSpec.describe RecipeCard do
     end
 
     it 'should not have user setter' do
+      # noinspection RubyResolve
       expect { rc_ps.user = double }.to raise_error(NoMethodError)
     end
   end
@@ -49,6 +51,7 @@ RSpec.describe RecipeCard do
     end
 
     it 'should not have date setter' do
+      # noinspection RubyResolve
       expect { rc_ps.date = double }.to raise_error(NoMethodError)
     end
   end
@@ -59,6 +62,7 @@ RSpec.describe RecipeCard do
     end
 
     it 'should not have date setter' do
+      # noinspection RubyResolve
       expect { rc_ps.rating = double }.to raise_error(NoMethodError)
     end
   end
