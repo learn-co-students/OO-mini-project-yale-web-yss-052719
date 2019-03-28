@@ -20,7 +20,7 @@ should return the user instances who have recipe cards with this recipe
 - `Recipe#ingredients`
 should return all of the ingredients in this recipe
 - `Recipe#allergens`
-should return all of the ingredients in this recipe that users are allergic to
+should return all of the `Ingredient`s in this recipe that are allergens for `User`s in our system.
 - `Recipe#add_ingredients`
 should take an array of ingredient instances as an argument, and associate each of those ingredients with this recipe
 
@@ -35,7 +35,7 @@ should return all of the recipes this user has recipe cards for
 - `User#add_recipe_card`
 should accept a recipe instance as an argument, as well as a date and rating, and create a new recipe card for this user and the given recipe
 - `User#declare_allergy`
-should accept an ingredient instance as an argument, and create a new allergy instance for this user and the given ingredient
+should accept an`Ingredient` instance as an argument, and create a new `Allergy` instance for this `User` and the given `Ingredient`
 - `User#allergens`
 should return all of the ingredients this user is allergic to
 - `User#top_three_recipes`
