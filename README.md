@@ -24,6 +24,11 @@ should return all of the `Ingredient`s in this recipe that are allergens for `Us
 - `Recipe#add_ingredients`
 should take an array of ingredient instances as an argument, and associate each of those ingredients with this recipe
 
+### `Allergy`
+An Allergy is a join between a user and an ingredient.  This is a has-many-through relationship.  What methods should an instance of this model respond to?
+
+- `Allergy.all`
+should return all of the Allergy instances
 
 ### `User`
 Build the following methods on the User class
@@ -42,8 +47,6 @@ should return all of the ingredients this user is allergic to
 should return the top three highest rated recipes for this user.
 - `User#most_recent_recipe`
 should return the recipe most recently added to the user's cookbook.
-
-
 
 ### `RecipeCard`
 A RecipeCard is the join between a user instance and a recipe instance.  This is a has-many-through relationship.
@@ -79,14 +82,6 @@ should return all of the RecipeIngredient instances
 should return the ingredient instance
 - `RecipeIngredient#recipe`
 should return the recipe instance
-
-### `Allergy`
-An Allergy is a join between a user and an ingredient.  This is a has-many-through relationship.  What methods should an instance of this model respond to?
-
-- `Allergy.all`
-should return all of the Allergy instances
-
-
 
 ### `**Bonus**`
 - `User#safe_recipes`
