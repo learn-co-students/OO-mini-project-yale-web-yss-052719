@@ -10,6 +10,8 @@ class User
     def recipes
         RecipeCard.all.select do |card|
             card.user == self
+        end.map do |card|
+            card.recipe
         end
     end
 
@@ -39,5 +41,17 @@ class User
         self.recipes.max_by do |recipe|
             recipe.date
         end
+    end
+
+    def safe_recipes
+        safe = []
+        self.recipes.each do |recipe|
+            recipe.ingredients.each do |ingredient|
+                if !self.allergens.include?(ingredient)
+                    safe << recipe
+                end
+            end
+        end
+        return safe.uniq
     end
 end
