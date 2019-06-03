@@ -2,6 +2,7 @@ require_relative '../config/environment.rb'
 
 max = User.new("Max")
 ganesh = User.new("Ganesh")
+gigi = User.new("Gigi")
 
 lasagna = Recipe.new("Lasagna")
 pizza = Recipe.new("Pizza")

@@ -53,4 +53,10 @@ class User
             rc.date
         end
     end
+
+    def safe_recipes
+        Recipe.all.select do |recipe|
+            (self.allergens & recipe.ingredients).empty?
+        end
+    end
 end
