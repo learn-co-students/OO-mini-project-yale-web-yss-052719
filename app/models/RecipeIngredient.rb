@@ -10,12 +10,8 @@ class RecipeIngredient
    
       @@all << self
     end
-   
-    # def ingredient
-    #   self.all.select do |ingr|
-    #     ingr.ingredient
-   
+
     def self.all
       @@all
     end
-   end
+end

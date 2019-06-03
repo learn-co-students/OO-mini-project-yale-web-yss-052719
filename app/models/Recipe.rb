@@ -17,22 +17,23 @@ class Recipe
    
     def ingredients
       RecipeIngredient.all.select do |ingr|
-        ingr.ingredient
+        ingr.recipe == self
+      end.map do |ri|
+        ri.ingredient
       end
     end
    
     def allergens
-      user_allergies = Allergy.all.select do |users|
-        users.user
-      end
-   
-      arry = user_allergies.map do |ingr|
-        ingr.ingredient
+      self.ingredients.find_all do |ingredient|
+        Allergy.all.find do |allergy|
+          allergy.ingredient = ingredient
+        end
       end
     end
    
     def add_ingredients(ingredients)
       ingredients.each do |associate|
+        # For every ingredient, I need a recipe ingredient
         RecipeIngredient.new(self, associate)
       end
     end

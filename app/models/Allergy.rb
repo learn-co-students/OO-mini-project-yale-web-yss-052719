@@ -2,7 +2,7 @@ class Allergy
 
     @@all = []
    
-    attr_accessor :user, :ingredient
+    attr_reader :user, :ingredient
    
     def initialize(user, ingredient)
       @user = user
@@ -15,4 +15,4 @@ class Allergy
       @@all
     end
    
-   end
+end

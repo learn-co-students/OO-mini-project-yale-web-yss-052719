@@ -14,10 +14,14 @@ class User
       @@all
     end
    
-    def recipes
+    def recipe_cards
       RecipeCard.all.select do |user_|
         user_.user == self
-      end.map do |recipe_|
+      end
+    end
+    
+    def recipes
+      self.recipe_cards.map do |recipe_|
         recipe_.recipe
       end
     end
@@ -48,13 +52,16 @@ class User
    
       rating_arr.map do |thr|
         thr.recipe
-      end.last(3).reverse
+      end.last(3).reverse #Instead of last(3), use [0..2]
+
+      # ....
+      # top.rating
+      # end.reverse[0..2].map {|recipe_card| recipe_card.recipe}
     end
    
     def most_recent_recipe
       RecipeCard.all.sort_by do |date_|
         date_.date
-      end.last
+      end.last.recipe
     end
-   
 end

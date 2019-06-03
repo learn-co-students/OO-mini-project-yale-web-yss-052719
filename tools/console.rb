@@ -17,6 +17,10 @@ jenna_allergy = jenna_z.declare_allergy(peanut)
 jenna_allergy2 = jenna_z.declare_allergy(choc)
 
 matt_p = User.new("Matt")
+peter_h = User.new("Peter")
+
+pete_recipe = Recipe.new("pete's bakedgoods")
+peter_h.add_recipe_card(pete_recipe, "2019-02-01", 3)
 matt_allergy = matt_p.declare_allergy(choc)
 
 jenna_recipe = Recipe.new("Jennas_bakedgoods")
